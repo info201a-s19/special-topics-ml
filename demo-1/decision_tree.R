@@ -2,7 +2,6 @@
 # rpart library
 library(rpart)
 library(rpart.plot)
-setwd('~/Documents/info-201/m15-special-topics/demo-1')
 homes <- read.csv('data/housing-data.csv')
 
 # Function to compare values

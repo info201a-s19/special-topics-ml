@@ -1,4 +1,4 @@
-# Exercise-2
+# Exercise-1
 In this exercise, you'll practice running a simple classification algorithm, and splitting your data into test and train splits. As usual, you should fork/clone the repository, then follow the instructions below (also indicated in the `exercise.R` file).
 
 See `complete` branch for answers
