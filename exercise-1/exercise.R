@@ -4,11 +4,10 @@ library(rpart)
 library(rpart.plot)
 
 # Read in data
-setwd('~/Documents/info-201/m15-special-topics/exercise-2')
 homes <- read.csv('data/housing-data.csv')
 
 # Function to compare values
-AssessFit <- function(model, data = homes, outcome = 'in_sf') {
+assess_fit <- function(model, data = homes, outcome = 'in_sf') {
   predicted <- predict(model, data, type='class')
   accuracy <- length(which(data[,outcome] == predicted)) / length(predicted) * 100
   return(accuracy)
@@ -17,17 +16,17 @@ AssessFit <- function(model, data = homes, outcome = 'in_sf') {
 # Assess fit for different models
 
 # Use rpart to fit a model: predict `in_sf` using all other variables
-basic.fit <- rpart(in_sf ~ ., data = homes, method="class")
+basic_fit <- rpart(in_sf ~ ., data = homes, method="class")
 
 # How well did we do?
-AssessFit(basic.fit)
+assess_fit(basic_fit)
 
 # Create empty vectors to store results
-basic.fits <- vector()
-perfect.fits <- vector()
+basic_fits <- vector()
+perfect_fits <- vector()
 
 # Sample size for training dataset
-sample.size <- floor(.75 * nrow(homes))
+sample_size <- floor(.75 * nrow(homes))
 for(i in 1:100) {
   # Create test and training data
   # Hint: http://stackoverflow.com/questions/17200114/how-to-split-data-into-training-testing-sets-using-sample-function-in-r-program
@@ -37,17 +36,17 @@ for(i in 1:100) {
   # 2. Pass your **training data** to the `rpart` function to run a simple classification operation
   
   
-  # 3. Pass your results to the `AssessFit` function to assess the fit
+  # 3. Pass your results to the `assess_fit` function to assess the fit
   
   
-  # 4. Store your assessment in the `basic.fits` vector
+  # 4. Store your assessment in the `basic_fits` vector
   
 }
 
-# 5. Make a histogram of your `basic.fits` vector
+# 5. Make a histogram of your `basic_fits` vector
 
 
-# 6. Take the mean of your `basic.fits` vector
+# 6. Take the mean of your `basic_fits` vector
 
 
 
