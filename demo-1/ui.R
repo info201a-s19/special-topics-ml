@@ -3,7 +3,7 @@ library(shiny)
 
 # Read in data
 source('decision_tree.R')
-shinyUI(fluidPage(
+ui <- fluidPage(
   # UI for the traffic simulation
   titlePanel('Housing Tree'),
   
@@ -20,4 +20,4 @@ shinyUI(fluidPage(
       textOutput('accuracy')
     )
   )
-))
+)

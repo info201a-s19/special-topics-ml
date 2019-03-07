@@ -7,17 +7,19 @@ library(shiny)
 
 # Read in data
 source('decision_tree.R')
-shinyServer(function(input, output){
+
+# Server
+server <- function(input, output){
   # Use a reactive expression so that you only run the code once
-  GetResults <- reactive ({
-    return(SimpleTree(input$features))
+  get_results <- reactive ({
+    return(simple_tree(input$features))
   })
   output$plot <- renderPlot({
-    results <- GetResults()
-    return(results$tree)
+    results <- get_results()
+    return(results$plot)
   })
   output$accuracy <- renderText({
-    results <- GetResults()
+    results <- get_results()
     return(results$accuracy)
   })
-})
+}
